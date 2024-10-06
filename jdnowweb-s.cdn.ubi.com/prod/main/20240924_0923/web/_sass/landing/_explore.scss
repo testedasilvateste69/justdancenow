@@ -1,0 +1,50 @@
+/**** Explore section ****/
+section.explore {
+    margin-bottom: 0vh;
+    padding-top: 5vh;
+    padding-bottom: 8vh;
+    background: #fff;
+    overflow-y: hidden;
+
+    h2 {
+        color:#d5127a;
+        letter-spacing: -1px;
+        line-height: 1.1;
+    }
+    p {
+        color: #626262;
+        margin-top: 1.5rem;
+    }
+}
+
+.video-display {
+    position : relative;
+
+    &::before {
+        content: "";
+        width: 100%;
+        height: 5.5rem;
+        background-image: linear-gradient(#a09f9f, #fff);
+        @include css-positioning(absolute, '', '', '', -5.5rem, 0);
+    }
+    &:hover .video-display__play-button {
+        transform: scale(1.1);
+        opacity : 1;
+    }
+}
+
+.video-display__link {
+    font-size: 0;
+}
+
+.video-display__play-button {
+    height : 3rem;
+    width : 3rem;
+    @include css-positioning(absolute, '', 45%, '', '', 45%);
+    @include backgroundImage-prop(url(../img/home/landing/icons/VideoPlayBtn.png), no-repeat, '', contain);
+}
+
+.video-display__poster {
+    font-size: 0;
+    width: 100%;
+}

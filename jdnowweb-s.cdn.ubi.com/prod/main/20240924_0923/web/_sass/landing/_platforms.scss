@@ -1,0 +1,82 @@
+/*************************************/
+/**** Platform section ****/
+
+.platforms {
+    font-size: 0;
+}
+
+.platforms__link {
+    display: inline-block;
+    text-decoration: none;
+    will-change: opacity;
+    vertical-align: middle;
+
+    &:hover, &:focus {
+        opacity: 1;
+    }
+    &.platforms__link--macos {
+        display: none;
+
+        html.browser--safari & {
+            display: block;
+        }
+    }
+
+    &:hover .platforms__icon,
+    &:focus .platforms__icon {
+        background: rgba(#000000, 0.6);
+        transition: 0.3s ease;
+
+        &.platforms__icon--macos,
+        &.platforms__icon--android {
+            opacity: 0.8;
+            background: none;
+        }
+    }
+}
+
+
+.platforms__icon {
+    background: #000;
+    border-radius: 6px;
+    height: 40px;
+
+    &.platforms__icon--macos {
+        border: 0 !important;
+        border-radius: 0;
+        background: transparent;
+    }
+}
+
+.platforms__caption  {
+    margin-top: 2.5rem;
+
+    .img-container {
+       width: 2rem;
+        float: left; 
+    }
+}
+
+.article__devices .platforms__icon {
+    height: 50px;
+    width: 190px !important;
+
+    &.platforms__icon--macos {
+        height: 60px;
+        width: 220px !important;
+    }
+    &.platforms__icon--android {
+        width: 225px !important;
+        height: 68px;
+        background: none;
+        margin-left: -10px;
+
+        html[lang="en"] &,
+        html[lang="fi"] &,
+        html[lang="fr"] &,
+        html[lang="da"] &,
+        html[lang="de"] & {
+            margin-left: 0;
+        }
+    }
+}

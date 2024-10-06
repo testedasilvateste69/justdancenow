@@ -1,0 +1,52 @@
+@import "reset";
+@import "font-imports";
+@import "typography";
+@import "accessibility";
+@import "../elements/elements";
+
+html,
+body {
+	background: #000;
+	color: #fff;
+}
+
+.header,
+.main,
+.footer {
+	margin: 0 auto;
+	font-weight: normal;
+	font-size: 20px;
+	line-height: 1.5;
+	font-style: normal;
+}
+
+/* Clearfix */
+.group:after {
+	display: block;
+	visibility: hidden;
+	clear: both;
+	height: 0;
+	content: ".";
+}
+
+// Scaling SVG container
+.svg-container {
+	position: relative;
+	height: 0;
+	width: 100%;
+	padding: 0;
+	padding-bottom: 100%;
+
+	svg {
+		height: 100%;
+		width: 100%;
+		@include css-positioning(absolute, '', 0, '', '', 0);
+	}
+}
+
+
+
+// Removes Bitdash contextual menus (including logos on top of the video)
+div[class^='bitdash-'] {
+    display: none !important;
+}

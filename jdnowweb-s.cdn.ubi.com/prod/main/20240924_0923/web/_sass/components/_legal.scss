@@ -1,0 +1,95 @@
+.legal {
+	width: 100%;
+	height: 100vh;
+	background: #e2e3e4;
+	@include css-positioning(absolute, '', 0, '', '', 0);
+
+	menu {
+		position: relative;
+		height: 8vh;
+		background: #333;
+		margin: 0;
+		padding: 0;
+		text-align: center;
+
+		&::after {
+			content: '';
+			width: 100%;
+			height: 30%;
+			background: linear-gradient(to bottom, #e2e3e4 20%, rgba(white, 0));
+			@include css-positioning(absolute, 1, 100%, '', '', 0);
+		}
+
+		a {
+			display: inline-block;
+			padding: 0.5em;
+			font-family: $primary-font-stack;
+			font-size: 3em;
+			height: 100%;
+			line-height: 8vh;
+			opacity: 1;
+			padding: 0 1em;
+			color: white;
+			text-decoration: none;
+		}
+
+		article:target + a {
+			outline: none;
+			background: #e2e3e4;
+			color: #333;
+		}
+	}
+
+	article {
+		width: 100%;
+		height: 80vh;
+		display: none;
+		@include css-positioning(absolute, '', 8vh, '', '', '');
+
+		&:target {
+			display: block;
+		}
+
+		iframe {
+			width: 100%;
+			height: 100%;
+		}
+	}
+
+	footer {
+		height: 12vh;
+		background: #333;
+		text-align: center;
+		width: 100%;
+		@include css-positioning(absolute, '', '', '', 0, '');
+
+		&::after {
+			content: '';
+			width: 100%;
+			height: 20%;
+			background: linear-gradient(to top, #e2e3e4 20%, rgba(white, 0));
+			@include css-positioning(absolute, 1, '', '', 100%, 0);
+		}
+
+		.confirm-text {
+			display: inline-block;
+			font-size: 2em;
+			max-width: 40%;
+			text-align: right;
+			margin-right: 2em;
+			vertical-align: middle;
+		}
+
+		.glow-button {
+			font-size: 2.2em;
+			display: inline-block;
+		    background: #0099ff;
+		    padding: 0.5em 1em;
+		    box-shadow: 0 0 0.3em 0.05em #0099ff, 0 0 0.3em #0090FF inset;
+		    border: 0.1em solid #01ffff;
+		    border-radius: 0.4em;
+		    cursor: pointer;
+		    margin-top: 0.4em;
+		}
+	}
+}

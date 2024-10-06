@@ -1,0 +1,187 @@
+.footer {
+	position: relative;
+    padding: 35px 0 20px;
+}
+
+.footer__inner {
+    position: relative;
+    width: 100%;
+    text-align: center;
+    display: inline-block;
+    padding: 5px 0 25px 0;
+}
+
+.menu__txt {
+    color: #fff;
+    display: inline-block;
+    font-size: 18px;
+
+    .footer__mobile & {
+        display: block;
+        font-size: 15px;
+        margin: 15px 0 0 0;
+    }
+    .footer__mobile .navigation__language & {
+        display: inline-block;
+    }
+}
+
+.footer .menu {
+	list-style: none;
+    margin-bottom: 6px;
+    display: inline-block;
+
+    li {
+        display: inline-block;
+        margin: 0 7px; 
+    }
+
+    a {
+        color: #fff;
+        text-transform: uppercase;
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: bold;
+        white-space: nowrap;
+    }
+
+    a:hover, a:focus {
+        opacity: 0.8;
+    }
+}
+
+.footer .menu.menu__relatedLinks a {
+    text-decoration: underline;
+}
+
+
+.footer .menu .facebook,
+.footer .menu .twitter,
+.footer .menu .youtube,
+.footer .menu .instagram {
+    width: 40px;
+    height: 34px;
+    vertical-align: middle;
+    display: inline-block;
+    margin-right: 4px;
+    a {
+    	display: block;
+		width: 20px;
+    }
+}
+
+.footer .menu .facebook {
+    margin: 0 0 0 -12px;
+}
+.footer .menu .youtube {
+    margin: 0 -7px 0 -16px;
+}
+
+.footer .copyright {
+	display: block;
+	font-size: 13px;
+	color: #63dcf5;
+	font-family: $primary-font-stack;
+    width: 70%;
+    margin: 0 auto;
+}
+
+.footer__ubi-logo {
+    display: inline-block;
+    padding-right: 4rem;
+
+    a {
+        display: inline-block;
+        outline: 0;
+    }
+}
+.img__ubi-logo {
+    width: 11rem;
+    height: 6.5rem;
+    vertical-align: bottom;
+    @include backgroundImage-prop(url(../img/home/landing/icons/Ubisoft_logo_mobile.svg), no-repeat, '', cover);
+}
+.img__esrb {
+    width: 4.25rem;
+    height: 5.7rem;;
+    margin-top: 0.6rem;
+    margin-left: -1rem;
+    vertical-align: initial;
+    transition: all 0.3s ease-in-out !important;
+    opacity: 1;
+    @include backgroundImage-prop(url(../img/home/landing/icons/privacy_certified_globe_normal.png), no-repeat, '', cover);
+
+    &:hover {
+        opacity: 0.75;
+    }
+}
+
+
+.icon__footer {
+	width: 100% !important;
+    height: 95%;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+
+    .footer__mobile & {
+        height: 100%;
+        width: 5.5rem !important;
+    }
+}
+.icon__footer-fb {
+    background: url(../img/home/landing/icons/footer_fb.svg);
+}
+.icon__footer-twitter {
+    background: url(../img/home/landing/icons/footer_twitter.svg);
+}
+.icon__footer-instagram {
+    background: url(../img/home/landing/icons/footer_instagram.svg);
+}
+.icon__footer-youtube {
+    background: url(../img/home/landing/icons/footer_youtube.svg);
+}
+
+.navigation__language {
+    margin-bottom: 0.6rem;
+}
+
+
+
+
+.footer__mobile {
+    display: none;
+    margin: 0 20px;
+    text-align: center;
+    padding-top: 2px;
+
+    .menu.links a {
+        font-size: 14px;
+    }
+    .menu li.social-networking {
+        vertical-align: bottom;
+        margin-left: 0;
+    }
+    .menu .facebook, .menu .twitter, .menu .youtube, .menu .instagram {
+        width: 46px;
+        height: 50px;
+    }
+    .menu .facebook {
+        margin: 0 22px 0px -20px;
+    }
+    .menu .youtube {
+        margin: 0 6px 0 -5px;
+    }
+
+    .copyright {
+        width: 95%;
+        line-height: 16px;
+    }
+}
+.navigation__mobile {
+    width: 50%;
+    float: left;
+}
+.footer .navigation__mobile .menu li {
+    display: block;
+    margin-bottom: 6px;
+}

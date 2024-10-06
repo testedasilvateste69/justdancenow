@@ -1,0 +1,209 @@
+
+/****landing play section*****/
+.main-header {
+    position: relative;
+    width: 100%;
+    height: 7rem;
+    @include backgroundImage-prop(url(../img/background/hud-bg.png), no-repeat, '', cover);
+}
+
+
+
+/******************** LOGO ***************************/
+
+.logo {
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    @include css-positioning(absolute, '', '', '', '', 0);
+}
+
+.logo__inner {
+    width: 23rem;
+    display: inline-block;
+    @include css-positioning(relative, 3, 1rem, 0, '', '');
+
+    .logo__inner--img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+
+/***************** DANCE ROOM ************************/
+.dr-landing__icon {
+    width: 5.8rem;
+    height: 5.8rem;
+    min-width: 95px;
+    min-height: 95px;
+}
+
+.dr-landing {
+    display: inline-block;
+    cursor: pointer;
+    color: #78007C;
+    width: 17rem;
+    min-width: 270px; //to prevent artefact when the screen is small
+    height: 7rem;
+    @include css-positioning(relative, 1, 0, '', '', 0);
+
+    &::before {
+        content: '';
+        @include css-positioning(absolute, -1, 0%, '', '', 0%);
+        width: 100%;
+        height: 100%;
+        background-color: white;
+    }
+
+    .init-spinner {
+        width: 100%;
+    }
+
+    .init-spinner__spinner {
+        width: 20%;
+        margin-top: -10%;
+        margin-left: -12%;
+        fill: #78007C;
+    }
+
+}
+
+.landing-patch {
+    width: 2.8rem;
+    height: 100%;
+    @include css-positioning(absolute, -1, 0%, -2.8rem, '', '');
+
+    &::before,
+    &::after {
+        content: '';
+        width: 0.7rem;
+        height: 100%;
+        @include css-positioning(absolute, -1, 0%, '', '', '');
+    }
+    &::before {
+        background-color: #f9d4fd;
+    }
+    &::after {
+        background-color: #f09afb;
+        left: 1.4rem;
+    }
+    .landing-patch-2 {
+        width: 0.7rem;
+        height: 100%;
+        background-color: #f5b8fd;
+        @include css-positioning(absolute, -1, 0%, '', '', 0.7rem);
+    }
+}
+
+.dr-landing--hidden {
+    opacity: 0;
+}
+
+.dr-landing__wrapper {
+    width: 100%;
+    height : 100%;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    padding: 0.5rem;
+}
+
+.dr-landing__icon-wrapper{
+    position: relative;
+    float: left;
+    flex: 0 0 auto;
+    margin-right: 0.6rem;
+}
+
+.dr-landing__caption{
+    font-size: 5.8rem;
+    width: 65%;
+}
+
+.dr-landing__label{
+    font-size: 19%;
+    font-family: $tertiary-font-stack;
+    letter-spacing: -1px;
+    line-height: 0.85;
+    margin-bottom: 0;
+
+}
+
+.dr-landing__room-number{
+    line-height: 0.9;
+    font-size: 60%;
+    font-family: $primary-font-stack-old;
+    @include css-positioning(relative, 0, '', '', '', '');
+}
+
+.qr-code__img {
+    width : 100%;
+    height : 100%;
+    float: left;
+}
+
+.scrollUp-fixed {
+    display: none;
+    background-color: #fff;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    border:2px solid #FD9802;
+    opacity: 0.75;
+    transition: all 0.2ms;
+    @include css-positioning(fixed, 3, '', 2%, 10%, '');
+
+    &:hover {
+        opacity: 1;
+        .scrollUp-text {
+            display: block;
+        }
+    }
+    &.visible {
+        display: block;
+    }
+
+    svg {
+        width: 150%;
+        height: 150%;
+        margin: -8% 0 0 -22%;
+    }
+
+    .scrollUp-text {
+        display: none;
+        width: 400%;
+        text-align: center;
+        line-height: 1.15;
+        @include css-positioning(relative, '', '', 1.5rem, -0.2rem, '');
+    }
+}
+
+
+
+//992px
+@include medium { 
+
+    .dr-landing__caption { 
+        padding-left: 0; 
+    }
+}
+
+
+//800px
+@include tablets {
+
+    .dr-landing__label { 
+        line-height: 0.9;
+    } 
+  
+}
+
+//480px
+@include phones { 
+
+    .dr-landing { 
+        display: none;
+    }
+
+}

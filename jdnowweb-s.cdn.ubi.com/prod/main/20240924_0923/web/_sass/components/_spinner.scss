@@ -1,0 +1,48 @@
+
+.spinner {
+	fill: #fff;
+	backface-visibility: hidden;
+	transform-style: preserve-3d;
+	transform-origin: 50% 50%;
+}
+
+.fullscreen-spinner {
+	display: none;
+	opacity: 0;
+	fill: #f900ff;
+	width: 100%;
+	height: 100%;
+	background: #fff;
+	@include css-positioning(absolute, 999999, 0, '', '', 0);
+}
+
+.state-dance.buffering .fullscreen-spinner {
+	fill: #fff;
+	background: rgba(255,255,255,0.2);
+}
+
+.fullscreen-spinner .spinner {
+	width: 0.6em;
+	height: 0.6em;
+	margin-top: -0.3em;
+	margin-left: -0.3em;
+	animation: spin 0.65s linear 0s normal none infinite;
+	fill: #fff;
+	backface-visibility: hidden;
+	transform-style: preserve-3d;
+	transform-origin: 50% 50%;
+	@include css-positioning(absolute, '', 50%, '', '', 50%);
+}
+
+.init .spinner,
+.loading .spinner {
+	animation: spin 0.65s infinite linear;
+}
+
+#buffering .spinner {
+	width: 0.7em;
+	height: 0.7em;
+	margin: -0.35em 0 0 -0.35em;
+	animation-duration: 0.5s;
+	@include css-positioning(absolute, '', 50%, '', '', 50%);
+}

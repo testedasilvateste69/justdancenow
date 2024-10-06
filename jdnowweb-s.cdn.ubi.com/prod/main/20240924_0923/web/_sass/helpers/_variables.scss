@@ -1,0 +1,62 @@
+// Global font stacks
+$primary-font-stack-old: "Just Dance", "Impact",  "Arial Bold", Gadget, sans-serif;
+$secondary-font-stack-old: "Just Dance Regular","Helvetica Neue", Helvetica, Arial, sans-serif;
+
+$primary-font-stack: "OpenSans Regular","Helvetica Neue", Helvetica, Arial, sans-serif;
+$secondary-font-stack: "OpenSans Bold", "Impact",  "Arial Bold", Gadget, sans-serif;
+$tertiary-font-stack: "OpenSans SemiBold","Helvetica Neue", Helvetica, Arial, sans-serif;
+
+$primary-font-stack-game: "OpenSans Regular";
+$secondary-font-stack-game: "OpenSans Bold";
+$tertiary-font-stack-game: "OpenSans SemiBold";
+
+
+// Global Colors
+$vip-color: #fff500;
+$vip-color-darker: #ffd700;
+
+// Player colors
+$player-color-blue: #3784f9;
+$player-color-red: #ec2443;
+$player-color-green: #7de400;
+$player-color-purple: #8802c9;
+$player-color-aqua: #03ded6;
+$player-color-pink: #d820c9;
+
+
+// Landing page variables
+$main-color-1 : #fff;
+$main-color-2 : #5a178d;
+$accent-color-1 : #000;
+$accent-color-2 : #DF5370;
+$accent-color-3 : #00B4FF;
+$svg-color-1 : #FD9802;
+
+.main-color-1 {
+    color : $main-color-1;
+}
+.main-color-2 {
+    color : $main-color-2;
+}
+.accent-color-1 {
+    color : $accent-color-1;
+}
+.accent-color-2 {
+    color : $accent-color-2;
+}
+
+
+
+// List of colors
+$color-list: (
+	blue, red, green, purple, aqua, pink
+);
+// List of player colors
+$player-color-list: (
+    $player-color-blue,
+    $player-color-red,
+    $player-color-green,
+    $player-color-purple,
+	$player-color-aqua,
+    $player-color-pink
+);

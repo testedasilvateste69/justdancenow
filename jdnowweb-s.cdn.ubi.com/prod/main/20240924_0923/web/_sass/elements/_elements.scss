@@ -1,0 +1,32 @@
+figure {
+	margin: 0;
+}
+
+hr {
+	clear: both;
+	width: 30px;
+	height: 1px;
+	border: 0;
+	background-color: rgba(255, 255, 255, 0.5);
+	margin: 22px auto 8px;
+}
+
+a,
+a:visited {
+	color: #3f7bbd;
+	transition: opacity 0.15s ease-out;
+}
+
+a:visited,
+a:focus {
+	outline: 0;
+}
+
+a:hover,
+a:focus {
+	opacity: 0.8;
+}
+
+
+@import "tables";
+@import "form";

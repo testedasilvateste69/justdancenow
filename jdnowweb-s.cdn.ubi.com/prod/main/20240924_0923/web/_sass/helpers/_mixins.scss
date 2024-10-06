@@ -1,0 +1,82 @@
+// Rem output with px fallback
+@mixin font-size($sizeValue: 1.6) {
+	font-size: ($sizeValue * 10) + px;
+	font-size: $sizeValue + rem;
+}
+
+// Center block
+@mixin center-block {
+	display: block;
+	margin: 0 auto;
+}
+
+// Clearfix
+@mixin clearfix() {
+	content: "";
+	display: table;
+}
+
+// Clear after (not all clearfix need this also)
+@mixin clearfix-after() {
+	clear: both;
+}
+
+// Fix for the viewBox height "bug" (uses the intrinsic ratio padding hack)
+@mixin svg-container ($ratio) {
+	display: inline-block;
+	position: relative;
+	padding-bottom: $ratio; // Height/width ratio
+	height: 0;
+
+	& svg {
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+	}
+}
+
+// Text shadow for all elements
+@mixin text-shadow($left, $top, $blur, $color) {
+    text-shadow: $left $top $blur $color;
+}
+
+// Position absolute properties for re-use
+@mixin css-positioning($pos_val, $index_val, $top_val, $right_val, $bottom_val, $left_val) {
+	@if $pos_val {
+		position: #{$pos_val};
+	}
+	@if $index_val {
+		z-index: #{$index_val};
+	}
+	@if $top_val {
+		top: #{$top_val};
+	}
+	@if $bottom_val {
+		bottom: #{$bottom_val};
+	}
+	@if $left_val {
+		left: #{$left_val};
+	}
+	@if $right_val {
+		right: #{$right_val};
+	}
+}
+
+// Background image properties
+@mixin backgroundImage-prop($path, $repeat_val, $pos_val, $size) {
+	@if $path {
+		background-image: #{$path};
+	}
+	@if $repeat_val {
+		background-repeat: #{$repeat_val};
+	}
+	@if $pos_val {
+		background-position: #{$pos_val};
+	}
+	@if $size {
+		background-size: #{$size};
+	}
+}
+

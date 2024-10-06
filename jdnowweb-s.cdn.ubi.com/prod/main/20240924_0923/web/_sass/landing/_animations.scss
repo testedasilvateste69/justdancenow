@@ -1,0 +1,118 @@
+/***************************/
+/**** Keyframes section ****/
+
+@keyframes fadeInDefault {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes spin {
+    from { 
+        transform: rotateZ(0deg); 
+    }
+    to { 
+        transform: rotateZ(360deg); 
+    }
+}
+
+@keyframes movescreenshots {
+    0% {
+        -webkit-transform: translate3d(0, 0, 0); 
+        transform: translate3d(0, 0, 0);
+    }
+    100% {
+        -webkit-transform: translate3d(-100%, 0, 0);
+        transform: translate3d(-100%, 0, 0);
+    }
+}
+
+@keyframes iphoneSlideIn {
+    0% { left: 0%; }
+    100% { left: 115%; }
+}
+
+@keyframes iphoneSlideOut {
+    0% { left: 115%; }
+    100% { left: 0%; }
+}
+
+@keyframes androidSlideIn {
+    0% { left: 24%; }
+    100% { left: 115%; }
+}
+
+@keyframes androidSlideOut {
+    0% { left: 115%; }
+    100% { left: 24%; }
+}
+
+@keyframes how-it-works-slideOut {
+    0% { transform: translateX(-115%); }
+    100% { transform: translateX(0%); }
+}
+
+@keyframes how-it-works-slideIn {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-115%); }
+}
+
+@keyframes deviceSupport-slideUp {
+    0% { transform: translateY(400%); opacity: 0; }
+    100% { transform: translateY(0%); opacity: 1; }
+}
+
+@keyframes deviceSupportTxt-slideUp {
+    0% { transform: translateY(850%); opacity: 0; }
+    100% { transform: translateY(0%); opacity: 1; }
+}
+
+@keyframes bounceLandingArrow {
+    0%, 60%, 75%, 90%, 100% {
+        transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    }
+
+    0% { opacity: 0; transform: translate3d(0, 5px, 0); }
+    60% { opacity: 1; transform: translate3d(0, 0px, 0); }
+    75% { transform: translate3d(0, 0px, 0); }
+    90% { transform: translate3d(0, 5px, 0); }
+    100% { transform: none; }
+}
+
+
+
+
+
+
+
+@keyframes flare {
+    0%, 100% {
+        left: -15.5rem;
+    }
+    50% {
+        left: calc(100% - 16.2rem);
+    }
+}
+
+@keyframes landingSectionSlide {
+    0% {
+        height: 0%;
+    }
+    100% {
+        height: 35%;
+    }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.5, 0.5);
+    opacity: .7;
+  }
+  to {
+    transform: scale(1.2, 1.2);
+    opacity: 0;
+  }
+}

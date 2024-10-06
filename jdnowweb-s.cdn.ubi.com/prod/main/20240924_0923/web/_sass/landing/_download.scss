@@ -1,0 +1,203 @@
+
+/**** Download section ****/
+.article__devices {
+    padding-top: 4rem;
+    text-align: center;
+    position: relative;
+    padding-right: 2rem;
+}
+
+.devices {
+    display: flex;
+    justify-content: center;
+}
+
+.devices__item {
+    float: left;
+    font-size: 0;
+}
+
+.device::before {
+    content: "";
+        box-shadow: 1px 42px 26px rgba(0,0,0,0.35);
+        margin-left: 3px;
+        margin-top: 3px;
+        margin-bottom: 31px;
+        @include css-positioning(absolute, '', 0, 0, 0, 0);
+}
+
+.devices__screen-image {
+    position: absolute;
+}
+
+.devices__item .article__image {
+    width: 95%;
+}
+
+.devices__screen-image--alt-1 {
+    width: 84.5%;
+    @include css-positioning('', '', 14.5%, '', '', 10.1%);
+}
+
+.devices__screen-image--alt-2 {
+    width: 92%;
+    @include css-positioning('', '', 9%, '', '', 6.9%);
+}
+
+.devices__images {
+    @include css-positioning(relative, '', -4rem, '', '', 110%);
+}
+
+.devices--iphone {
+    animation: iphoneSlideIn 0.5s forwards;
+    position: absolute;
+    @include css-positioning(absolute, 10, '', '', '', '');
+}
+
+.devices--android {
+    top: -3rem;
+    animation: androidSlideIn 0.5s forwards;
+}
+
+.line--device__support {
+    margin-bottom: 1rem;
+}
+.line--device__header {
+    margin-bottom: 3rem;
+
+    h3 {
+        letter-spacing: -1px;
+        text-align: center;
+        margin: 0 auto;
+    }
+    .content__small {
+        padding: 0.6rem 4rem;
+        background-image: linear-gradient(to right, rgba(239,152,197,0), #8964d5 20%, #5098fe 80%, rgba(239,152,197,0) 100%)
+    }
+}
+
+.figure__images {
+    flex-basis: 46%;
+    position: relative;
+}
+.figure__devices {
+    width: auto;
+    color: $main-color-1;
+    padding-bottom: 3rem;
+    position: relative;
+    margin: 0 auto;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: flex-end;
+    -ms-flex-align: end;
+    align-items: flex-end;
+    -webkit-align-self: center;
+    -ms-flex-item-align: center;
+    align-self: center;
+    display: -webkit-flex;
+    -webkit-align-items: flex-end;
+    -webkit-align-self: center;
+
+    .figure--device__img {
+        min-width: 8rem;
+        text-align: center;
+        max-width: 15rem;
+        margin-right: 1rem;
+    }
+    .figure--device__img:last-child {
+        margin-right: 0rem;
+    }
+
+    .deviceSupport {
+        transform: translateY(400%);
+        &.deviceSupport__img-tablet {
+            transform: translateY(350%);
+        }
+    }
+
+    .deviceSupport__img {
+        background-repeat: no-repeat;
+        background-size: contain;
+        margin: 0 auto;
+        opacity: 0;
+    }
+
+    .deviceSupport__img-chromecast {
+        width: 105px;
+        height: 80px;
+        background-image: url(../img/home/landing/icons/icon-chromecast.png);
+    }
+    .deviceSupport__img-browser {
+        width: 145px;
+        height: 105px;
+        background-image: url(../img/home/landing/icons/icon-computer.png);
+    }
+    .deviceSupport__img-tablet {
+        width: 110px;
+        height: 110px;
+        top: 1rem;
+        position: relative;
+        background-image: url(../img/home/landing/icons/icon-tablet.png);
+    }
+    .deviceSupport__img-smartTV {
+        width: 115px;
+        height: 115px;
+        background-image: url(../img/home/landing/icons/icon-appleTv.png);
+    }
+    .deviceSupport__img-macos {
+        width: 115px;
+        height: 115px;
+        background-image: url(../img/home/landing/icons/icon-macOs.png);
+    }
+}
+.figure__txt {
+    width: 100%;
+    text-align: center;
+    font-size: 1.2rem;
+    transform: translateY(850%);
+    opacity: 0;
+    letter-spacing: -1px;
+}
+.device__list {
+    color: #63dcf5 !important;
+    font-size: 1.3rem;
+    margin-top: 1rem;
+    text-decoration: underline;
+    outline: none;
+    text-align: center;
+    width: 100%;
+    @include css-positioning(absolute, '', '', 0, -0.8rem, 0);
+
+    .compatibility-img {
+       width: 3rem;
+        height: 2rem;
+        vertical-align: bottom;
+        @include css-positioning(relative, '', '', '', '', 2%); 
+    }
+}
+
+.line__download {
+    position: relative;
+
+    &::before {
+        content: '';
+        background-color: $main-color-1;
+        width: 112%;
+        height: 20rem;
+        @include css-positioning(absolute, '', 0, '', '', -6%);
+    }
+}
+.download-txt {
+    color: #d5127a;
+    margin: 0 0 1rem;
+    letter-spacing: -1.5px;
+    line-height: 1.2;
+
+    html.browser--safari & {
+        margin: 0rem;
+    }
+}
+
+.compatibility-img {
+    @include css-positioning(absolute, '', -30%, '', '', -4%);
+}

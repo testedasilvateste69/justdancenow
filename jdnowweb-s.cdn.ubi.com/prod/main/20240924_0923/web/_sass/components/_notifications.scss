@@ -1,0 +1,58 @@
+
+.notification {
+	background: rgba(42,45,50,0.75);
+	padding: 16px 22px 14px 18px;
+	line-height: 1.4;
+	pointer-events: none;
+	color: rgba(250,251,255,0.95);
+	max-width: 400px;
+	border-radius: 5px;
+	@include css-positioning(fixed, 1000, '', '', 30px, 2.5%);
+}
+
+.notification.show {
+	pointer-events: auto;
+}
+
+.notification.hide,
+.notification.show {
+	animation-name: animScale;
+	animation-duration: 0.3s;
+}
+
+.notification.hide {
+	animation-direction:reverse;
+}
+
+.notification .chromecast {
+	fill: #fff;
+	float: left;
+	width: 50px;
+	height: 38px;
+	margin-top: 6px;
+	margin-right: 15px;
+}
+
+.notification h4 {
+	float: left;
+	max-width: 170px;
+	font-size: 23px;
+	margin-bottom: 10px;
+}
+
+.notification ol,
+.notification ul,
+.notification p {
+	margin-top: 4px;
+	font-family: $secondary-font-stack;
+	font-size: 13px;
+}
+
+.notification ol {
+	clear: both;
+	margin-left: 30px;
+}
+
+.notification li {
+	font-weight: normal;
+}

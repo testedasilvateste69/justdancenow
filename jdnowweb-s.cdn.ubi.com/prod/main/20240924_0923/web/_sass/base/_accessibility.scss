@@ -1,0 +1,6 @@
+/* Accessibility */
+.structural,
+.structural > * {
+	position:absolute;
+	left:-9999px;
+}

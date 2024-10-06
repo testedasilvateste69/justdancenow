@@ -1,0 +1,39 @@
+
+// Main JD Now fonts
+@font-face {
+	font-weight: normal;
+	font-style: normal;
+	font-family: "Just Dance";
+	src: url("../fonts/Just_Dance_Bold.woff") format("woff"), /* Modern Browsers */
+		url("../fonts/Just_Dance_Bold.ttf") format("truetype"); /* Safari, Android, iOS */
+}
+@font-face {
+	font-weight: normal;
+	font-style: normal;
+	font-family: "Just Dance Regular";
+	src: url("../fonts/JD_Regular.woff") format("woff"),
+		url("../fonts/JD_Regular.ttf") format("truetype");
+}
+
+
+@font-face {
+	font-weight: normal;
+	font-style: normal;
+	font-family: "OpenSans Regular";
+	src: url("../fonts/OpenSans-Regular.woff") format("woff"),
+		url("../fonts/OpenSans-Regular.ttf") format("truetype");
+}
+@font-face {
+	font-weight: normal;
+	font-style: normal;
+	font-family: "OpenSans Bold";
+	src: url("../fonts/OpenSans-Bold.woff") format("woff"),
+		url("../fonts/OpenSans-Bold.ttf") format("truetype");
+}
+@font-face {
+	font-weight: normal;
+	font-style: normal;
+	font-family: "OpenSans SemiBold";
+	src: url("../fonts/OpenSans-SemiBold.woff") format("woff"),
+		url("../fonts/OpenSans-SemiBold.ttf") format("truetype");
+}

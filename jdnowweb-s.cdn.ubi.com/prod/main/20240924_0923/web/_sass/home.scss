@@ -1,0 +1,793 @@
+@import "base";
+@import "components/spinner";
+@import "components/notifications";
+@import "components/legal";
+@import "components/warning";
+@import "layout/side-nav";
+@import "layout/footer";
+@import "components/dropdown";
+
+
+@import "landing/mixins";
+@import "landing/animations";
+@import "game/components/pop-up";
+
+
+
+
+.same-background {
+    background-color: $main-color-2;
+    @include backgroundImage-prop(url(../img/background/second-screen-bg.jpg), no-repeat, '', cover);
+    background-attachment: fixed;
+}
+
+/**SPLASH Screen**/
+.landing-splash,
+.landing-splash__app {
+    text-align: center;
+    height: 100vh;
+    background-color: #fff;
+}
+.landing-splash {
+    padding-top: 30vh;
+}
+.landing-splash__icon {
+    display: inline-block;
+    position: relative;
+    width: 25rem;
+    height: 14rem;
+    @include backgroundImage-prop(url(../img/home/icons/Ubisoft_Stacked_Logo_WHITE.svg), no-repeat, '', cover);
+}
+.landing-splash__app {
+    display: none;
+
+    html.macOSApp & {
+        display: block;
+    }
+
+    .landing-splash__icon__app {
+        height: 100vh;
+        width: 100vw;
+        @include backgroundImage-prop(url(../img/home/landing/splash_JDN_Anniversary_Web.jpg), no-repeat, '', contain);
+        @include css-positioning(absolute, 9999999, 0vh, '', '', 0vw); /**left: 29vw**/
+    }
+}
+
+
+.game_loading {
+    width: 100%;
+    text-align: center;
+    font-size: 1.5rem;
+    font-family: Just Dance Regular;
+    @include css-positioning(absolute, '', 44vh, '', '', '');
+    user-select: none;
+}
+
+
+html {
+    font-size: 17px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: relative;
+}
+html::-webkit-scrollbar {
+    width: 0px;
+}
+html.chromecast {
+    position: static;
+}
+
+body {
+    @include css-positioning(absolute, '', 0, 0px, 0, 0);
+}
+.iframe__close {
+    display: none;
+}
+
+.header {
+    height: 0em;
+}
+
+h1 { 
+    font-size: 5.5rem;
+    line-height : 6.2rem;
+}
+h2 { 
+    font-size: 3.5rem;
+    //line-height : 4.2rem;
+}
+h3 { 
+    font-size: 2.8rem;
+    line-height : 3.6rem;
+} 
+h4 {
+    font-size: 2rem;
+}
+h1, h2, h3, h4 {
+    font-family: $tertiary-font-stack;
+    margin-bottom: 0;
+    text-transform: none;
+    line-height : 100%;
+}
+
+
+button {
+    background: none;
+    border : none;
+    cursor: pointer;
+}
+
+button:focus {
+    outline: 0;
+}
+
+// Copy
+p,
+a { font-family: $primary-font-stack; }
+p { margin-bottom: 20px; font-size: 1.2rem; }
+a { text-decoration: none; }
+
+.svg-content {
+    position: relative;
+    width: 100%;
+    padding: 0;
+    padding-bottom: 100%;
+}
+
+.svg-content--fixed-size {
+    padding-bottom: 0;
+    height: 100%;
+}
+
+.svg-content__inner {
+    height: 100%;
+    width: 100%;
+    @include css-positioning(absolute, '', 0, '', '', 0);
+}
+
+
+.main {
+    overflow: hidden;
+    position: relative;
+    color : $main-color-1;
+    @extend .same-background;
+}
+
+.clearfix::after {
+    content: '';
+    clear: both;
+    display: block;
+    margin: 0;
+    padding: 0;
+    line-height: 0;
+}
+
+
+/***Sections****/
+.section {
+    position: relative;
+    display : flex;
+    display : -webkit-flex;
+    width: 100vw;
+    padding-left : 5%;
+    padding-right : 5%;
+    margin-bottom : 8vh;
+}
+
+.section--full-height {
+    height : 101vh;
+    padding : 0;
+}
+
+.section--vertical-content {
+    flex-direction : column;
+    -webkit-flex-direction : column;
+}
+
+.section#features {
+    margin: 0vh 0 0;
+}
+
+.section#how-it-works {
+    margin: 8vh 0 5vh;
+}
+
+.section.availability {
+    margin-bottom: 3vh;
+}
+
+
+/***Articles****/
+.article {
+    //color : $main-color-1;
+    margin-right : 5rem;
+    flex-grow: 1;
+    -webkit-flex-grow: 1;
+}
+
+.article--large-size {
+    flex-basis : 66%;
+    flex-grow : 0;
+    -webkit-flex-basis : 66%;
+    -webkit-flex-grow : 0;
+}
+
+.article--med-size {
+    flex-basis : 50%;
+    flex-grow : 0;
+    -webkit-flex-basis : 50%;
+    -webkit-flex-grow : 0;
+}
+
+.article--small-size {
+    flex-basis : 43%;
+    flex-shrink: 0;
+    flex-grow : 0;
+    -webkit-flex-basis : 43%;
+    -webkit-flex-shrink: 0;
+    -webkit-flex-grow : 0;
+}
+
+.article--xs-size {
+    flex-basis: 23%;
+    -webkit-flex-basis: 23%;
+    padding-right: 0rem;
+}
+
+.article--center-vertical {
+    align-self : center;
+    -webkit-align-self : center;
+}
+
+.article__title--strong {
+    margin-bottom: 3rem;
+}
+
+.article__content {
+    width : 100%;
+}
+
+.article__songs {
+    margin-top: -11rem;
+    font-size: 1.1rem;
+}
+
+.article__content--small-size {
+    width : 66%;
+}
+
+.article__image {
+    width : 100%;
+    height : auto;
+}
+
+.article-right {
+    margin-left: auto;
+    text-align: right;
+}
+
+.article--xs-image {
+    flex-basis: 46%;
+    position: relative;
+}
+
+.article--small-devices {
+    flex-basis: 39%;
+}
+
+.article__title-align {
+    width: 62%;
+    text-align: right;
+    margin-left: 4rem;
+}
+
+
+/***Lines***/
+.line {
+    display: flex;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    width: 100%;
+    margin-bottom: 5rem;
+}
+
+
+.line--center-items {
+    justify-content : center;
+    -webkit-justify-content : center;
+}
+
+
+@include medium {
+    .line {
+        margin-bottom: 3rem;
+    }
+}
+
+
+
+
+@import "landing/landing";
+@import "landing/explore";
+@import "landing/catalog";
+@import "landing/features";
+@import "landing/howitworks";
+@import "landing/download";
+@import "landing/platforms";
+
+
+
+
+
+
+.content__small {
+    display: inline-block;
+    padding: 0 4rem;
+    min-width: 70%;
+    max-width: 100%;
+    text-align: center;
+}
+
+
+.downloadSection_mobile {
+    display: none;
+    width: 100%;
+    height: 35%;
+    padding: 1rem;
+    background-color: #5a178d;
+    background-attachment: fixed;
+    margin-left: auto;
+    margin-right: auto;
+    animation: landingSectionSlide 0.5s;
+
+    @include backgroundImage-prop(url("../img/background/second-screen-bg.jpg"), no-repeat, '', cover);
+    @include css-positioning(absolute, '', '', 0, 0, 0);
+
+    .download-txt {
+        margin: 1rem 0 2rem;
+        color: #fff;
+    }
+    .platforms__link--android {
+        margin-left: 1rem;
+    }
+    .platforms__icon {
+        height: 60px;
+        width: 200px;
+    }
+}
+.landing__mobile .landing-arrow {
+    @include css-positioning(absolute, 2, '', '', '', '');
+}
+
+
+
+
+/***** launch game hide/show ********/
+
+.launch-game {
+    transition: all 200ms;
+
+}
+
+.launch-game--hidden {
+    visibility: hidden;
+    transition: all 200ms;
+}
+
+
+/**** Spinner loader section ****/
+.init-spinner {
+    fill: #fff;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    -webkit-animation: fadeInDefault 0.2s linear forwards;
+    animation: fadeInDefault 0.2s linear forwards;
+    @include css-positioning(absolute, 999999, 0, '', '', 0);
+}
+
+.init-spinner__spinner {
+    width: 4%;
+    margin-top: -2.5%;
+    margin-left: -2.5%;
+    fill: #fff;
+    opacity: 0.5;
+    -webkit-animation: spin 0.6s linear 0s normal none infinite;
+    animation: spin 0.6s linear 0s normal none infinite;
+    -webkit-backface-visibility: hidden;
+    transform-style: preserve-3d;
+    transform-origin: 50% 50%;
+
+    @include css-positioning(absolute, '', 50%, '', '', 50%);
+}
+
+.init-spinner--splash {
+    width: 100vw;
+    height: 100vh;
+    background: #fff;
+
+    &::before {
+        content: '';
+        height: 100%;
+        width: 44vw;
+        @include css-positioning(absolute, '', 0vh, '', '', 27vw);
+        @include backgroundImage-prop(url(../img/home/landing/splash_JDNLogo.png), no-repeat, '', contain);
+
+        html.chromecast & {
+            background-image: url(../img/home/landing/splash_JDNLogo_cc.png)
+        }
+        html.ipad & {
+            width: 50vw;
+            top: 12vh;
+            left: 25vw;
+        }
+    }
+
+    &.init-spinner--splash__generic {
+        &::before {
+            width: 100vw !important;
+            height: 100vh !important;
+            left: 0vw !important;
+            top: 0vh !important;
+            @include backgroundImage-prop(url(../img/home/landing/splash_JDN_Anniversary_Web.jpg), no-repeat, '', 100% 100%);
+			
+			html.chromecast & {
+                background-image: url(../img/home/landing/splash_JDN_Anniversary_Web.jpg)
+            }
+        }
+    }
+
+    .init-spinner__spinner {
+        top: auto;
+        bottom: 10%;
+        opacity: 0.8;
+
+        html.macOSApp & {
+            bottom: 15%;
+        }
+    }
+}
+
+.landing__video_splash,
+html.macOSApp .landing__video_splash,
+html.pcApp .landing__video_splash {
+    width: 100vw;
+    background: none;
+    transform: none;
+    top: 0%;
+    left: 0%;
+}
+
+/*html:-webkit-full-screen .init-spinner--splash {
+    top: 10%;
+    background: red;
+}
+html:-moz-full-screen .init-spinner--splash {
+    top: 10%;
+    background: red;
+}
+html:-ms-fullscreen .init-spinner--splash {
+    top: 10%;
+    background: red;
+}
+html:fullscreen .init-spinner--splash {
+    top: 10%;
+    background: red;
+}*/
+
+
+/**** Cookie notice ****/
+.site-message {
+    width: 80%;
+    padding: 8px 5px 10px;
+    background: #333333;
+    transition: transform 0.3s linear, opacity 0.45s, visibility 0s;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(100%);
+    @include css-positioning(fixed, 1000, '', '', 0, 10%);
+
+    &.show {
+        transform: translateY(0%);
+        opacity: 0.8;
+        visibility: visible;
+    }
+
+    a, a:visited {
+        color: #fff;
+        font-weight: bold;
+        text-decoration: underline;
+    }
+
+    @media only screen and (max-width: 540px) {
+        & .cookie-wrapper {
+            padding: 0 10px;
+        }
+    }
+}
+
+.cookie-wrapper {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+}
+
+.message-icon {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 0;
+    margin-right: 1rem;
+
+    .icon {
+        fill: #9d6bbd;
+        width: 23px;
+        height: 23px;
+    }
+}
+
+.cookie-content {
+    width: 90%;
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 14px;
+    font-family: $primary-font-stack;
+    line-height: 20px;
+    margin: 6px 0;
+}
+
+.cookie-close {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 1rem;
+}
+
+.cookie-close .cookie-close-btn {
+    background: none;
+    border: 0;
+    cursor: pointer;
+    padding: 3px 6px 4px;
+    background: #fff;
+    border-radius: 3px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #590091;
+    font-family: $secondary-font-stack;
+
+    &:hover,
+    &:focus {
+        opacity: 0.8;
+        background: #f9ebeb;
+    }
+}
+
+
+#just-dance-now, .header_resolute {
+    display: none;
+}
+
+.hidden-video {
+    transform: translateX(-100%);
+    opacity: 0;
+    position: absolute;
+}
+
+#ad-video.hidden {
+    @extend .hidden-video;
+}
+
+#in-game-video {
+    width: 100%;
+    height: 100%;
+    transform: translateZ(0);
+    transition: opacity 0.5s;
+    @include css-positioning(absolute, 0, 0, '', '', 0);
+
+    // Used to block the user from right-clicking and getting the Flash contextual menu
+    &::before {
+        content: "";
+        @include css-positioning(absolute, 1, 0, 0, 0, 0);
+    }
+
+    &.hidden {
+        @extend .hidden-video;
+    }
+
+    #dance-video {
+        width: 100%;
+        height: 100%;
+
+        video {
+            width: 100%;
+        }
+    }
+}
+
+#iframe_maintenance {
+    width: 100%;
+    height: 100vh;
+}
+.chromecast #iframe_maintenance {
+    width: 1280px;
+    height: 720px;
+}
+
+
+body.connection-lost {
+    &::after {
+        content: '';
+        width: 100%;
+        height: 100%;
+        font-size: 0.5em;
+        background: black;
+        text-align: center;
+        line-height: 9.4em;
+        text-shadow: 0 0 0.1em red;
+        @include css-positioning(absolute, 99999999, 0, '', '', 0);
+    }
+    .connectionLost-wrapper {
+        height: 100vh;
+        width: calc(100vw + 17px);
+        margin-right: 17px;
+        background-image: linear-gradient(to bottom right, #97d1ef, #1b87bf);
+        @include css-positioning(absolute, 999999999, 0, '', '', 0);
+
+        .main {
+            position: relative;
+            height: 100%;
+            padding-left: 40vw;
+            padding-right: 5vw;
+            padding-top: 2vh;
+            color : #fff;
+            background-image: none;
+            background-color: transparent;
+        }
+        .main::before {
+            content: "";
+            background-color: #fff;
+            width: 26%;
+            height: 101%;
+            display: block !important;
+            @include css-positioning(absolute, '', 0, '', '', 0);
+        }
+        .logo {
+            width: 24rem;
+            height: auto;
+            padding-top: 4rem;
+            position: relative;
+        }
+        .character {
+            height: calc(100% - 6rem);
+            width: 22rem;
+            @include css-positioning(absolute, '', '', calc(75vw - 12rem), 0.85rem, '');
+        }
+        .connectionLost-container {
+            margin-top: 3rem;
+            font-size: 1.75rem;
+            line-height: 1.3;
+            width: 35rem;
+            margin-left: -0.2rem;
+            letter-spacing: -1px;
+        }
+        p.connectionLost-text {
+            font-size: 1.75rem;
+            margin: 1.5rem 0 0.6rem;
+            font-family: $primary-font-stack-game;
+        }
+        svg {
+            width: 100%;
+            height: 100%;
+        }
+    }
+    .connection-lost-reload {
+        width: 10rem;
+        height: 4rem;
+        color: #fff400;
+        text-align: center;
+        margin: 3rem auto 0;
+        cursor: pointer;
+        position: relative;
+        user-select: none;
+        font-family: $tertiary-font-stack;
+
+        html.chromecast & {
+            display: none;
+        }
+
+        .connection-lost-img {
+            width: 3rem;
+            height: 3rem;
+            display: inline-block;
+            vertical-align: middle;
+        }
+    }
+}
+
+
+/***Language specific***/
+
+html[lang="ko"] {
+    .footer--catalog {
+        margin-right: 10%;
+    }
+}
+
+
+.pop-up__wrapper.landing-popUp {
+    top: 45vh;
+    .pop-up__title {
+        font-size: 1.8rem;
+    }
+}
+html.chromecast .pop-up__wrapper.landing-popUp {
+    top: 0vh;
+    opacity: 1;
+    display: flex;
+}
+
+
+
+
+@import "layout/responsive";
+
+
+/*************************Browser specific CSS*******************/
+
+/*  Targeted only for Mozilla */
+@-moz-document url-prefix() { 
+    .main {
+        background-size : 100% 100%;
+    }
+}
+
+
+/* Targeted only for IE */
+.browser--exp .init-spinner__spinner {
+    top: 2rem;
+}
+.browser--exp .init-spinner--splash .init-spinner__spinner {
+    top: auto;
+    bottom: -15rem;
+}
+.browser--exp .main-header {
+    height: 8.65rem;
+}
+.browser--exp .logo__inner {
+    top: -0.8rem;
+}
+.browser--exp .footer--catalog {
+    position: absolute;
+    right: 4%;
+}
+.browser--exp .platforms__icon {
+    width: 140px;
+}
+
+
+
+/* Targeted for Safari */
+.browser--safari__mobile .main {
+    background-image: none;
+}
+.browser--safari .header--catalog,
+.browser--safari__mobile .header--catalog {
+    flex-basis: initial;
+}
+.browser--safari .footer--catalog,
+.browser--safari__mobile .footer--catalog {
+    right: 6%;
+}
+
+
+/* Targeted for Opera */
+.browser--opera body + div {
+    display: none;
+}
+
+
+/* Targeted for AndroidTV browser */
+html.browser-androidTv {
+    .toggle__tv .copyright {
+        margin: 0 auto 14rem;
+    }
+}

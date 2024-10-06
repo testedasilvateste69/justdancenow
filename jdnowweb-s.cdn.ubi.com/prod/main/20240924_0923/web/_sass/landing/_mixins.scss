@@ -1,0 +1,38 @@
+/** media queries scales, from bootstrap **/
+$media-wide : 1200px;
+$media-medium : 992px;
+$media-tablets : 800px; //768px;
+$media-phones : 480px;
+$media-small : 320px;
+
+
+
+@mixin wide {
+    @media only screen and (max-width: #{$media-wide}) {
+        @content;
+    }
+}
+
+@mixin medium {
+     @media only screen and (max-width: #{$media-medium}) {
+        @content;
+    }
+}
+
+@mixin tablets {
+     @media only screen and (max-width: #{$media-tablets}) {
+        @content;
+    }
+}
+
+@mixin phones {
+     @media only screen and (max-width: #{$media-phones}) {
+        @content;
+    }
+}
+
+@mixin small {
+     @media only screen and (max-width: #{$media-small}) {
+        @content;
+    }
+}

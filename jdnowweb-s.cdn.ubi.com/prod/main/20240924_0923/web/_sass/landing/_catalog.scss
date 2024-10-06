@@ -1,0 +1,229 @@
+/***** screen mixins *****/
+
+@mixin overlay-gradient($left-offset, $screen-width) {
+
+    $left-stop : calc(#{$left-offset} + 1%);
+    $right-stop : calc(#{$left-offset} + #{$screen-width});
+
+    background-image: linear-gradient(to right, #fff 0%, #fff $left-stop, rgba(255,255,255,0) $left-stop, rgba(255,255,255,0) $right-stop, #fff $right-stop, #fff 100%);
+}
+
+
+$screen-icon-width : 22.5rem;
+$screen-left-offset : 15%;
+
+
+
+/**** Catalog section ****/
+.section.catalog {
+    padding: 0;
+    .line {
+        margin-bottom: 0rem;
+    }
+}
+.header--catalog {
+    position: relative;
+    padding: 2rem 5% 0;
+    margin-right: 0rem;
+    flex-basis: inherit;
+    -webkit-flex-basis: inherit;
+
+    h2 {
+        margin-right: 0rem;
+        letter-spacing: -1px;
+    }
+
+    .article--med-size {
+        flex-basis: 100%;
+        -webkit-flex-basis: 100%;
+    }
+    .article__content-margin {
+        padding: 0.5rem 5rem 3rem 0;
+        width: 65%;
+        margin: 1rem auto -1rem;
+        color: #00fcff;
+        font-size: 1.25rem;
+        line-height: 1.6rem;
+    }
+}
+.footer--catalog {
+    margin: -2rem 16.5rem 0 auto;
+    position: relative;
+    z-index: 2;
+
+    .article__title {
+        color: #730a96;
+        padding-right: 0rem;
+        padding-bottom: 0.5rem;
+        margin-right: 0;
+        letter-spacing: -1.5px;
+        font-size: 2.1rem;
+    }
+}
+
+
+.screen {
+    width : 100%;
+    height: 20rem;
+    font-size: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    @include css-positioning(relative, 2, '', '', '', '');
+}
+
+.screen__icon-wrapper {
+    width: $screen-icon-width;
+    height: 16.5rem;
+    @include css-positioning(absolute, 12, '', '', 0, $screen-left-offset);
+}
+
+.screen__icon {
+    z-index: 1;
+    fill: #000;
+}
+
+.screenshots {
+    height: 12rem;
+    width: 100%;
+    @include css-positioning(absolute, '', '', '', 64px, 0);
+
+    &::before {
+        content : "";
+        width: 100%;
+        height: 100%;
+        opacity: 0.65;
+
+        @include overlay-gradient($screen-left-offset, $screen-icon-width);
+        @include css-positioning(absolute, 1, 0, '', 0, 0);
+    }
+}
+
+.screenshot {
+    display: inline-block;
+    position: relative;
+}
+
+.screenshots__figure {
+    display: inline-block;
+    height: 12rem;
+    width: 21rem
+}
+
+.screenshots__images {
+    width: auto;
+    height: 100%;
+    @include backgroundImage-prop('', no-repeat, '', cover);
+}
+
+.screenshot__title {
+    width: 100%;
+    @include css-positioning(absolute, '', '', '', 100%, 0);
+
+    padding-left: 5%;
+    padding-right: 5%;    
+    padding-bottom: 5%;
+
+    font-family: $tertiary-font-stack;
+    color: #ffffff;
+    opacity: 0.6;
+    font-size: 1rem;
+    line-height: 1.2rem;
+    text-align: center;
+    white-space: normal;
+    letter-spacing: -0.5px;
+}
+
+.screenshots__wrapper-name {
+    width: 103%;
+    height: 3rem;
+    overflow: hidden;
+    white-space: nowrap;
+    @include css-positioning(absolute, '', -3rem, '', '', -3%);
+}
+.wrapper-name {
+    position: absolute;
+    width: 362rem;
+}
+
+.name-img {
+    font-family: Just Dance Regular;
+    color: #ffffff;
+    display: inline-block;
+    width: 21.8rem;
+    height: 100%;
+    opacity: 0.6;
+    font-size: 1rem;
+    line-height: 1.2rem;
+    text-align: center;
+    white-space: normal;
+    padding: 0 0.5%;
+    vertical-align: middle;
+}
+
+html.browser-androidTv {
+    .screenshots__images--wrapper figure.screenshots__figure,
+    #features figure.polaroid,
+    #features figure.polaroid__wrapper,
+    #features figure.features__figure {
+        display: none;
+    }
+
+    #features {
+        .concurrency .article--xs-image {
+            flex-basis: 80% !important;
+        }
+        .never-dance-alone .never-dance-alone__image {
+            flex-basis: 45% !important;
+        }
+        .features__figure-4 {
+            left: 8% !important;
+        }
+    }
+
+}
+
+
+
+@include wide {
+    $left-offset : calc(50% - #{$screen-icon-width} / 2);
+
+    .screen__icon-wrapper { 
+        left: $left-offset;
+    } 
+
+    .screenshots::before {
+        @include overlay-gradient($left-offset, $screen-icon-width);
+    }
+}
+
+
+@include phones {
+    .screen__icon-wrapper { 
+        max-width: calc(100%);
+    }
+}
+
+@media screen and (max-width : 435px) {
+    .screen__icon-wrapper { 
+        left: 0%;
+    }
+    .screenshots {
+        bottom: 3.7rem;
+        &::before {
+            display: none;
+        }
+    }
+    .screenshot {
+        height: 100%;
+    }
+    .screenshots__images--wrapper {
+        height: 100%;
+        overflow: hidden; 
+    }
+}
+
+@include small {
+    .screenshots {
+        bottom: 4.7rem;
+    }
+}
